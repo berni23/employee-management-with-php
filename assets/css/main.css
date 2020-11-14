@@ -1,0 +1,25 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#navbarNav>form {
+    position: absolute;
+    right: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Media query */
+
+@media (max-width: 992px) {
+    #navbarNav>form {
+        position: static;
+    }
+}
