@@ -16,7 +16,10 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
     <link rel="stylesheet" href="../assets/css/main.css?v=<?php echo time(); ?>">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--    <script src="../assets/js/loginController.js"></script> -->
+    <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
+    <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
+    <script src="../assets/js/mainController.js?v=<?php echo time(); ?>"></script>
     <title>Dashboard</title>
 </head>
 
@@ -41,6 +44,9 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
             </form>
         </div>
     </nav>
+    <main class="container">
+        <div id="jsGrid"></div>
+    </main>
 </body>
 
 </html>
