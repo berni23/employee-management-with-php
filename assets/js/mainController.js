@@ -4,9 +4,9 @@ $(function(){
     
     function getEmployees() {
         var body = new FormData();
-        body.append("method", "getEmployees");
+        //body.append("method", "getEmployees");
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "library/employeeController.php",
             data: body,
             processData: false,
@@ -16,6 +16,22 @@ $(function(){
             data = JSON.parse(data)
             employeesList = data;
             refreshEmployeesGrid();
+        })
+    }
+    function getEmployee(id) {
+        var body = new FormData();
+        body.append("id", id);
+        $.ajax({
+            type: "GET",
+            url: "library/employeeController.php",
+            data: body,
+            processData: false,
+            contentType: false
+        }).then((data) => {
+            console.log(data);
+            data = JSON.parse(data)
+            //employeesList = data;
+            //refreshEmployeesGrid();
         })
     }
     function refreshEmployeesGrid() {
@@ -29,6 +45,45 @@ $(function(){
             paging: true,
      
             data: employeesList,
+
+            controller: {
+                loadData: function(filter) {
+                    $.ajax({
+                        type: "GET",
+                        url: "library/employeeController.php",
+                        data: filter
+                    }).then((data)=>{
+                        console.log(data)
+                    });
+                },
+                insertItem: function(item) {
+                    $.ajax({
+                        type: "POST",
+                        url: "library/employeeController.php",
+                        data: item
+                    }).then((data)=>{
+                        console.log(data)
+                    });
+                },
+                updateItem: function(item) {
+                    $.ajax({
+                        type: "PUT",
+                        url: "library/employeeController.php",
+                        data: item
+                    }).then((data)=>{
+                        console.log(data)
+                    });
+                },
+                deleteItem: function(item) {
+                    $.ajax({
+                        type: "DELETE",
+                        url: "library/employeeController.php",
+                        data: item
+                    }).then((data)=>{
+                        console.log(data)
+                    });
+                }
+            },
      
             fields: [
                 { name: "name", type: "text", width: 100, validate: "required" },
@@ -42,7 +97,10 @@ $(function(){
         });
     }
 
-    getEmployees()
+    function load() {
+        getEmployees()
+    }
     
     
+    load()
 })
