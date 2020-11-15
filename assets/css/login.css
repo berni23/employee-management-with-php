@@ -1,8 +1,8 @@
+html,
 body {
     height: 100%;
 }
 
-html,
 body {
     display: -ms-flexbox;
     display: flex;
@@ -11,13 +11,19 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #f5f5f5;
+    font-family: 'Ubuntu', sans-serif;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 .form-signin {
     width: 100%;
-    max-width: 330px;
+    max-width: 300px;
     padding: 15px;
     margin: auto;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
 }
 
 .form-signin .checkbox {
@@ -30,6 +36,7 @@ body {
     height: auto;
     padding: 10px;
     font-size: 16px;
+    margin: 5px 0 40px;
 }
 
 .form-signin .form-control:focus {
@@ -48,6 +55,24 @@ body {
     border-top-right-radius: 0;
 }
 
-.hidden {
-    display: none;
+.font-weight-normal {
+    font-weight: 400!important;
+    text-align: center;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    background-color: #3f51b54d;
+    width: 7rem;
+    margin: auto;
+    color: black;
+}
+
+#registerButton {
+    text-decoration: underline;
+}
+
+#registerButton:hover {
+    color: blue;
 }
