@@ -31,3 +31,12 @@ body {
 #submitEmployee {
     margin-right: 10px;
 }
+
+#msgWrapper {
+    position: fixed;
+    top: 5px;
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

@@ -56,7 +56,18 @@ $(function() {
             contentType: false
         }).then((data) => {
             console.log(data)
+<<<<<<< HEAD
             //window.open("dashboard.php", "_self");
+=======
+            $("#msgWrapper").empty().append(`<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <p id="msg">Employee Successfully Saved.</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>`)
+
+
+>>>>>>> origin/suki
         });
     })
     document.getElementById("return").addEventListener("click", (e) => {
