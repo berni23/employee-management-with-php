@@ -56,7 +56,7 @@ $(function() {
             contentType: false
         }).then((data) => {
             console.log(data)
-            window.open("dashboard.php", "_self");
+            //window.open("dashboard.php", "_self");
         });
     })
     document.getElementById("return").addEventListener("click", (e) => {
