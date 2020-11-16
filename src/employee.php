@@ -110,6 +110,7 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
 
         </form>
     </div>
+    <div id="msgWrapper"></div>
 </body>
 
 </html>
