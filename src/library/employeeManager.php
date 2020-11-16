@@ -20,6 +20,8 @@ function addEmployee(array $newEmployee)
 
     $employees = json_decode($string, true);
 
+    $newEmployee["id"] = count($employees) + 1;
+
     array_push($employees, $newEmployee);
 
     file_put_contents("../../resources/employees.json", json_encode($employees));

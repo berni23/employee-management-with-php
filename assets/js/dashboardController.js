@@ -79,6 +79,7 @@ $(function() {
                         data: item
                     }).then((data) => {
                         console.log(data)
+                        getEmployees()
                     });
                 },
                 updateItem: function(item) {
@@ -106,7 +107,6 @@ $(function() {
                 { name: "lastName", type: "text", width: 100 },
                 { name: "email", type: "text", width: 200 },
                 { name: "gender", type: "text", width: 80 },
-                { name: "email", type: "text", width: 200 },
                 { name: "age", type: "number" },
                 { type: "control" }
             ]
