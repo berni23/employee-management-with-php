@@ -19,7 +19,7 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
-    <script src="../assets/js/mainController.js?v=<?php echo time(); ?>"></script>
+    <script src="../assets/js/dashboardController.js?v=<?php echo time(); ?>"></script>
     <title>Dashboard</title>
 </head>
 
@@ -31,11 +31,11 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="employee.php">Employee</a>
+                    <a class="nav-link" href="">Employee</a>
                 </li>
             </ul>
             <form method="post" action="library/loginController.php">

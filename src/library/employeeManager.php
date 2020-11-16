@@ -39,8 +39,8 @@ function deleteEmployee(string $id)
 
     $return = false;
 
-    foreach($employees as $i => $employee) {
-        if($employee["id"] == $id) {
+    foreach ($employees as $i => $employee) {
+        if ($employee["id"] == $id) {
             array_splice($employees, $i, 1);
             $return = $employees;
         }
@@ -54,6 +54,49 @@ function deleteEmployee(string $id)
 function updateEmployee(array $updateEmployee)
 {
     // TODO implement it
+    $employee = getEmployee($updateEmployee["id"]);
+    $newEmployee = $employee;
+    $keys = array_keys($updateEmployee);
+    for ($i = 0; $i < count($keys); $i++) {
+        if ($keys[$i] == "name") {
+            $newEmployee["name"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "lname") {
+            $newEmployee["lastName"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "email") {
+            $newEmployee["email"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "address") {
+            $newEmployee["streetAddress"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "state") {
+            $newEmployee["state"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "age") {
+            $newEmployee["age"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "pc") {
+            $newEmployee["postalCode"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "phone") {
+            $newEmployee["phoneNumber"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "gender") {
+            $newEmployee["gender"] = $updateEmployee[$keys[$i]];
+        }
+        if ($keys[$i] == "city") {
+            $newEmployee["city"] = $updateEmployee[$keys[$i]];
+        }
+    }
+    $string = file_get_contents("../../resources/employees.json");
+    $employees = json_decode($string, true);
+    //$employee = json_decode($employee, true);
+    // $result = array_diff($employees, $employee);
+    $i = array_search($employee, $employees);
+    $employees[$i] = $newEmployee;
+    file_put_contents("../../resources/employees.json", json_encode($employees));
+    return $newEmployee;
 }
 
 
@@ -66,8 +109,8 @@ function getEmployee(string $id)
 
     $return = false;
 
-    foreach($employees as $i => $employee) {
-        if($employee["id"] == $id) {
+    foreach ($employees as $i => $employee) {
+        if ($employee["id"] == $id) {
             $return = $employee;
         }
     }
