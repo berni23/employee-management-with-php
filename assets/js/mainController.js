@@ -40,9 +40,22 @@ $(function(){
             width: "100%",
      
             inserting: true,
-            editing: true,
+            editing: false,
             sorting: true,
             paging: true,
+
+            rowDoubleClick: function(item, i, e) {
+                //console.log(item["item"])
+                $.ajax({
+                    type: "GET",
+                    url: "library/employeeController.php?id="+item["item"]["id"],
+                    data: "body",
+                    processData: false,
+                    contentType: false
+                }).then((data)=>{
+                    console.log(data)
+                });
+            },
      
             data: employeesList,
 
