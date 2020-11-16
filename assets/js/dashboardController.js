@@ -1,7 +1,7 @@
-$(function(){
+$(function() {
 
     var employeesList;
-    
+
     function getEmployees() {
         var body = new FormData();
         //body.append("method", "getEmployees");
@@ -18,6 +18,7 @@ $(function(){
             refreshEmployeesGrid();
         })
     }
+
     function getEmployee(id) {
         var body = new FormData();
         body.append("id", id);
@@ -30,15 +31,16 @@ $(function(){
         }).then((data) => {
             console.log(data);
             data = JSON.parse(data)
-            //employeesList = data;
-            //refreshEmployeesGrid();
+                //employeesList = data;
+                //refreshEmployeesGrid();
         })
     }
+
     function refreshEmployeesGrid() {
-     
+
         $("#jsGrid").jsGrid({
             width: "100%",
-     
+
             inserting: true,
             editing: false,
             sorting: true,
@@ -46,17 +48,18 @@ $(function(){
 
             rowDoubleClick: function(item, i, e) {
                 //console.log(item["item"])
-                $.ajax({
-                    type: "GET",
-                    url: "library/employeeController.php?id="+item["item"]["id"],
-                    data: "body",
-                    processData: false,
-                    contentType: false
-                }).then((data)=>{
-                    console.log(data)
-                });
+                window.open("http://localhost/projects/php-employee-management-v1/src/employee.php?id=" + item["item"]["id"], "_self")
+                    /* $.ajax({
+                         type: "GET",
+                         url: "library/employeeController.php?id="+item["item"]["id"],
+                         data: "body",
+                         processData: false,
+                         contentType: false
+                     }).then((data)=>{
+                         console.log(data)
+                     });*/
             },
-     
+
             data: employeesList,
 
             controller: {
@@ -65,7 +68,7 @@ $(function(){
                         type: "GET",
                         url: "library/employeeController.php",
                         data: filter
-                    }).then((data)=>{
+                    }).then((data) => {
                         console.log(data)
                     });
                 },
@@ -74,7 +77,7 @@ $(function(){
                         type: "POST",
                         url: "library/employeeController.php",
                         data: item
-                    }).then((data)=>{
+                    }).then((data) => {
                         console.log(data)
                     });
                 },
@@ -83,7 +86,7 @@ $(function(){
                         type: "PUT",
                         url: "library/employeeController.php",
                         data: item
-                    }).then((data)=>{
+                    }).then((data) => {
                         console.log(data)
                     });
                 },
@@ -92,19 +95,19 @@ $(function(){
                         type: "DELETE",
                         url: "library/employeeController.php",
                         data: item
-                    }).then((data)=>{
+                    }).then((data) => {
                         console.log(data)
                     });
                 }
             },
-     
+
             fields: [
                 { name: "name", type: "text", width: 100, validate: "required" },
                 { name: "lastName", type: "text", width: 100 },
                 { name: "email", type: "text", width: 200 },
                 { name: "gender", type: "text", width: 80 },
                 { name: "email", type: "text", width: 200 },
-                { name: "age", type: "number"},
+                { name: "age", type: "number" },
                 { type: "control" }
             ]
         });
@@ -113,7 +116,7 @@ $(function(){
     function load() {
         getEmployees()
     }
-    
-    
+
+
     load()
 })

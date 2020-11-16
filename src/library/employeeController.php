@@ -9,11 +9,21 @@ $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 switch ($method) {
     case 'PUT':
-
+        parse_str(file_get_contents('php://input'), $_PUT);
+        print_r(json_encode($_PUT));
+        // print_r($data);
         break;
     case 'POST':
-        //print_r($_POST);
+        if (isset($_POST["method"])) {
+            if ($_POST["method"] == "updateEmployee") {
+                //print_r($_POST);
+               updateEmployee($_POST);
+                die();
+            } 
+        }
         addEmployee(($_POST));
+        //print_r($_POST);
+
         break;
     case 'GET':
         //print_r($_GET);
