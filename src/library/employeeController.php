@@ -16,6 +16,7 @@ switch ($method) {
         addEmployee(($_POST));
         break;
     case 'GET':
+        //print_r($_GET);
         if (isset($_GET["id"])) {
             //echo $_GET["id"];
             print_r(json_encode(getEmployee($_GET["id"])));
