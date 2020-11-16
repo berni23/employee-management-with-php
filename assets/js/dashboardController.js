@@ -46,7 +46,7 @@ $(function() {
             sorting: true,
             paging: true,
 
-            rowDoubleClick: function(item, i, e) {
+            rowClick: function(item, i, e) {
                 //console.log(item["item"])
                 window.open("employee.php?id=" + item["item"]["id"], "_self")
                     /* $.ajax({
@@ -108,7 +108,7 @@ $(function() {
                 { name: "email", type: "text", width: 200 },
                 { name: "gender", type: "text", width: 80 },
                 { name: "age", type: "number" },
-                { type: "control" }
+                { type: "control", editButton: false }
             ]
         });
     }
