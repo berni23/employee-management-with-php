@@ -1,4 +1,5 @@
 <?php
+require_once "loginManager.php";
 session_start();
 
 
