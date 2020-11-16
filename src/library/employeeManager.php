@@ -67,7 +67,7 @@ function getEmployee(string $id)
     $return = false;
 
     foreach($employees as $i => $employee) {
-        if($employee["id"] = $id) {
+        if($employee["id"] == $id) {
             $return = $employee;
         }
     }
