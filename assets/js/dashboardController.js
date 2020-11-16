@@ -48,7 +48,7 @@ $(function() {
 
             rowDoubleClick: function(item, i, e) {
                 //console.log(item["item"])
-                window.open("http://localhost/projects/php-employee-management-v1/src/employee.php?id=" + item["item"]["id"], "_self")
+                window.open("employee.php?id=" + item["item"]["id"], "_self")
                     /* $.ajax({
                          type: "GET",
                          url: "library/employeeController.php?id="+item["item"]["id"],
