@@ -14,8 +14,6 @@ function validateLogin($userName, $password)
                 $_SESSION["userName"] = $user["name"];
                 $_SESSION["uid"] = $users["userId"];
                 $_SESSION["email"] = $users["email"];
-
-            
                 header("Location: ../dashboard.php");
             }
         }
