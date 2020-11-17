@@ -19,8 +19,6 @@ function validateLogin($userName, $password)
         }
     }
 }
- 
-
 function logOut()
 {
     unset($_SESSION["userName"]);
@@ -29,4 +27,3 @@ function logOut()
     session_destroy();
     header("Location: ../..");
 }
-
