@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var id;
 
     function getEmployee() {
@@ -36,7 +36,14 @@ $(function() {
             inputAge.val(data["age"]);
             inputPC.val(data["postalCode"]);
             inputPhone.val(data["phoneNumber"]);
-            getAvatars(data["gender"],data["age"])
+            if (data["profileImg"]) {
+                $("#imageWrapper").append(`<img src="${data["profileImg"]}" width="70px" data-gender="${data["gender"]}" data-age="${data["age"]}" />`)
+                $("#imageWrapper > img").click((e)=>{
+                    getAvatars($(e.currentTarget).attr("data-gender"), $(e.currentTarget).attr("data-age"))
+                })
+            } else {
+                getAvatars(data["gender"], data["age"])
+            }
 
         });
     }
@@ -75,8 +82,8 @@ $(function() {
     })
     function getCountSession() {
         let time;
-        setInterval (()=> {
-            if(time <= 600 || time == undefined) {
+        setInterval(() => {
+            if (time <= 600 || time == undefined) {
                 $.ajax({
                     type: "GET",
                     url: "library/sessionHelper.php?method=getTimeLogged",
@@ -86,7 +93,7 @@ $(function() {
                     time = data;
                     console.log(time);
                 })
-            } else if(time > 600) {
+            } else if (time > 600) {
                 $.ajax({
                     type: "GET",
                     url: "library/sessionHelper.php?method=closeSession",
@@ -98,7 +105,7 @@ $(function() {
                     return
                 })
             }
-            
+
         }, 1000)
     }
     function getAvatars(gender, age) {
@@ -110,17 +117,17 @@ $(function() {
         }
         $.ajax({
             type: "GET",
-            url: "imageGallery.php?limit=7&gender="+genders+"&age="+age,
+            url: "imageGallery.php?limit=7&gender=" + genders + "&age=" + age,
             processData: false,
             contentType: false
         }).then((data) => {
             console.log(data);
             data = JSON.parse(data)
             $("#imageWrapper").empty();
-            for(let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 $("#imageWrapper").append(`<img src="${data[i].photo}" width="70px" />`)
             }
-            $("#imageWrapper > img").click((e)=>{
+            $("#imageWrapper > img").click((e) => {
                 console.log("hey")
                 $('.selected').removeClass('selected');
                 $(e.currentTarget).addClass('selected');
