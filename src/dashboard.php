@@ -28,6 +28,7 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
     <main class="container">
         <div id="jsGrid"></div>
     </main>
+    <div id="msgWrapper"></div>
     <?php include "../assets/footer.html"; ?>
 
 </body>
