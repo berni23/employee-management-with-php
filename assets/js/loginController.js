@@ -17,6 +17,9 @@ $(function() {
                 contentType: false
             }).then((data) => {
                 console.log(data)
+                if (data == "valid") {
+                    window.open("src/dashboard.php", "_self")
+                }
             })
             return false;
         }
