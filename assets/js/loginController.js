@@ -43,27 +43,39 @@ $(function() {
         body.append("method", "register")
         body.append("newUsername", form.newUsername.value)
         body.append("newPassword", form.newPassword.value)
+        body.append("newEmail", form.newEmail.value)
         $.ajax({
             type: "POST",
-            url: "../model/users/users.php",
+            url: "../src/library/loginController.php",
             data: body,
             processData: false,
             contentType: false
         }).then((data) => {
-            data = JSON.parse(data)
-            if (data["valid"] == "true") {
-                window.location.href = data["url"]
+            //data = JSON.parse(data)
+            if (data == "User is already registered.") {
+                //alerta
+                $("#validationServerUserNameFeedback").remove()
+                    $("#inputUserName").removeClass("is-valid").addClass("is-invalid").after(`<div id="validationServerUserNameFeedback" class="invalid-feedback">
+                    ${data}
+                  </div>`)
+            } else if (data == "Email is already registered.") {
+                //alerta
+                $("#validationServerUserNameFeedback").remove()
+                $("#inputUserName").removeClass("is-invalid").addClass("is-valid")
+                $("#inputEmail").removeClass("is-valid").addClass("is-invalid").after(`<div id="validationServerEmailFeedback" class="invalid-feedback">
+                ${data}
+              </div>`)
+            } else if (data == "User Successfully Registered.") {
+                //alerta
+                $("#validationServerUserNameFeedback").remove()
+                $("#validationServerEmailFeedback").remove()
+                $("#inputUserName").removeClass("is-invalid").addClass("is-valid")
+                $("#inputEmail").removeClass("is-invalid").addClass("is-valid")
+                window.open("../src/dashboard.php", "_self")
             }
             console.log(data)
         })
         return false;
     })
-    $("#registerButton").click((e) => {
-        e.preventDefault();
-        console.log("llego")
-        var body = new FormData()
-        body.append("registerUser", "true")
-        window.location.href = "register"
-        return false;
-    })
+    
 })

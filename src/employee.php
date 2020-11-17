@@ -28,6 +28,10 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
         <div id="avatar"></div>
 
         <form id="updateEmployeeForm">
+            <div class="form-row" id="imageWrapper">
+
+            </div>
+            <input type="text" class="hidden" id="profileImgInput" name="profileImg">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Name</label>

@@ -108,8 +108,8 @@ $(function() {
                 { name: "name", type: "text", width: 100, validate: "required" },
                 { name: "lastName", type: "text", width: 100 },
                 { name: "email", type: "text", width: 200 },
-                { name: "gender", type: "text", width: 80 },
-                { name: "age", type: "number" },
+                { name: "gender", type: "text", width: 80 , validate: "required" },
+                { name: "age", type: "number" , validate: "required" },
                 { type: "control", editButton: false }
 
             ]
@@ -152,5 +152,12 @@ $(function() {
 
     load()
     $("ul.navbar-nav").children().first().addClass("active")
-
+    $("#registerButton").click((e) => {
+        e.preventDefault();
+        console.log("llego")
+        var body = new FormData()
+        body.append("registerUser", "true")
+        window.location.href = "../register"
+        return false;
+    })
 })

@@ -9,6 +9,8 @@ if (isset($_POST)) {
             print_r(validateLogin($_POST["username"], $_POST["password"]));
         } elseif ($_POST["method"] === "logout") {
             logOut();
+        } elseif($_POST["method"] == "register") {
+            print_r(registerUser($_POST["newUsername"], $_POST["newPassword"], $_POST["newEmail"]));
         }
     }
 }
