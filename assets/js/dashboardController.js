@@ -70,6 +70,12 @@ $(function() {
                     }).then((data) => {
                         console.log(data)
                         getEmployees()
+                        $("#msgWrapper").empty().append(`<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <p id="msg">Employee Successfully Created.</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`)
                     });
                 },
                 updateItem: function(item) {
@@ -88,6 +94,12 @@ $(function() {
                         data: item
                     }).then((data) => {
                         console.log(data)
+                        $("#msgWrapper").empty().append(`<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <p id="msg">Employee Successfully Removed.</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`)
                     });
                 }
             },
