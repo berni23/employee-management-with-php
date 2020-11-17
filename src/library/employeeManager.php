@@ -1,5 +1,4 @@
 <?php
-
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -99,6 +98,7 @@ function updateEmployee(array $updateEmployee)
             $newEmployee["city"] = $updateEmployee[$keys[$i]];
         }
     }
+    
     $string = file_get_contents("../../resources/employees.json");
     $employees = json_decode($string, true);
     //$employee = json_decode($employee, true);
