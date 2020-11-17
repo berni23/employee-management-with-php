@@ -151,5 +151,12 @@ $(function() {
 
     load()
     $("ul.navbar-nav").children().first().addClass("active")
-
+    $("#registerButton").click((e) => {
+        e.preventDefault();
+        console.log("llego")
+        var body = new FormData()
+        body.append("registerUser", "true")
+        window.location.href = "../register"
+        return false;
+    })
 })

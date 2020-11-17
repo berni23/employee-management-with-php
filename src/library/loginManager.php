@@ -22,6 +22,28 @@ function validateLogin($userName, $password)
     }
     return "This user was not found.";
 }
+function registerUser($userName, $password, $email)
+{
+    $string = file_get_contents("../../resources/users.json");
+    $highestId = 0;
+    $users = json_decode($string, true);
+    foreach ($users["users"] as $i => $user) {
+        if ($user["name"] == $userName) {
+
+            return "User is already registered.";
+        } elseif ($user["email"] == $email) {
+
+            return "Email is already registered.";
+        } elseif ($user["userId"] >= $highestId) {
+            $highestId = $user["userId"];
+        }
+    }
+    $highestId++;
+    $disUser = array("userId" => $highestId, "name"=>$userName, "password"=> password_hash($password, PASSWORD_DEFAULT), "email"=>$email);
+    array_push($users["users"], $disUser);
+    file_put_contents("../../resources/users.json", json_encode($users));
+    return "User Successfully Registered.";
+}
 function logOut()
 {
     unset($_SESSION["userName"]);

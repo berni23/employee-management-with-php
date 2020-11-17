@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSION["email"])) {
+    header("Location: ..");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +23,8 @@
   <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
   <label for="inputUserName" class="sr-only">Username</label>
   <input name="newUsername" type="text" id="inputUserName" class="form-control" placeholder="Username" required="" autofocus="">
+  <label for="inputEmail" class="sr-only">Email</label>
+  <input name="newEmail" type="email" id="inputEmail" class="form-control" placeholder="Email" required="">
   <label for="inputPassword" class="sr-only">Password</label>
   <input name="newPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
   <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>

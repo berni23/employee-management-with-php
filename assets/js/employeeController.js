@@ -102,4 +102,12 @@ $(function() {
     }
     getCountSession();
     $("ul.navbar-nav").children().last().addClass("active")
+    $("#registerButton").click((e) => {
+        e.preventDefault();
+        console.log("llego")
+        var body = new FormData()
+        body.append("registerUser", "true")
+        window.location.href = "../register"
+        return false;
+    })
 })
