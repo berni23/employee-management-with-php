@@ -72,10 +72,11 @@ $(function() {
         e.stopPropagation();
         window.open("dashboard.php", "_self");
     })
+
     function getCountSession() {
         let time;
-        setInterval (()=> {
-            if(time <= 600 || time == undefined) {
+        setInterval(() => {
+            if (time <= 600 || time == undefined) {
                 $.ajax({
                     type: "GET",
                     url: "library/sessionHelper.php?method=getTimeLogged",
@@ -85,7 +86,7 @@ $(function() {
                     time = data;
                     console.log(time);
                 })
-            } else if(time > 600) {
+            } else if (time > 600) {
                 $.ajax({
                     type: "GET",
                     url: "library/sessionHelper.php?method=closeSession",
@@ -97,9 +98,11 @@ $(function() {
                     return
                 })
             }
-            
+
         }, 1000)
     }
     getCountSession();
     $("ul.navbar-nav").children().last().addClass("active")
+
+
 })
