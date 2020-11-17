@@ -20,7 +20,15 @@ function addEmployee(array $newEmployee)
 
     $employees = json_decode($string, true);
 
-    $newEmployee["id"] = count($employees) + 1;
+    $highestId = 0; 
+
+    foreach ($employees as $i => $employee) {
+        if ($employee["id"] > $highestId) {
+            $highestId = $employee["id"];
+        }
+    }
+
+    $newEmployee["id"] = $highestId + 1;
 
     array_push($employees, $newEmployee);
 
