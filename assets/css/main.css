@@ -21,18 +21,6 @@ body {
   margin: 0;
 }
 
-.hidden {
-  display: none;
-}
-
-/* Media query */
-
-@media (max-width: 992px) {
-  #navbarNav > form {
-    position: static;
-  }
-}
-
 .container {
   font-size: 15px;
 }
@@ -48,4 +36,24 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+}
+
+#registerWrapper {
+    position: absolute;
+    right: 120px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media query */
+
+@media (max-width: 992px) {
+  #navbarNav > form {
+    position: static;
+  }
+  #registerWrapper {
+    position: static;
+}
 }

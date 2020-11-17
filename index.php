@@ -16,7 +16,7 @@ if (isset($_SESSION["userName"]) && isset($_SESSION["uid"]) && isset($_SESSION["
     <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/loginController.js"></script>
+    <script src="assets/js/loginController.js?v=<?php echo time(); ?>"></script>
     <title>Login - Foo</title>
 </head>
 
@@ -33,9 +33,9 @@ if (isset($_SESSION["userName"]) && isset($_SESSION["uid"]) && isset($_SESSION["
                 <input name="remember" type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <button class="btn" type="button" id="registerButton">Not Registered?</a>
-        </div>
+        </div> -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <input type="text" value="login" name="method" class="hidden">
     </form>
