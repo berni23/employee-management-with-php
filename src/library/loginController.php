@@ -10,6 +10,7 @@ if (isset($_POST)) {
     if (isset($_POST["method"])) {
         if ($_POST["method"] === "login") {
             validateLogin($_POST["username"], $_POST["password"]);
+            $_SESSION["timeLogged"] = time();
         } elseif ($_POST["method"] === "logout") {
             logOut();
         }

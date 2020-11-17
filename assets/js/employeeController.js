@@ -72,4 +72,34 @@ $(function() {
         e.stopPropagation();
         window.open("dashboard.php", "_self");
     })
+    function getCountSession() {
+        let time;
+        setInterval (()=> {
+            if(time <= 600 || time == undefined) {
+                $.ajax({
+                    type: "GET",
+                    url: "library/sessionHelper.php?method=getTimeLogged",
+                    processData: false,
+                    contentType: false
+                }).then((data) => {
+                    time = data;
+                    console.log(time);
+                })
+            } else if(time > 600) {
+                $.ajax({
+                    type: "GET",
+                    url: "library/sessionHelper.php?method=closeSession",
+                    processData: false,
+                    contentType: false
+                }).then((data) => {
+                    console.log(data);
+                    window.location.reload();
+                    return
+                })
+            }
+            
+        }, 1000)
+    }
+    getCountSession();
+    $("ul.navbar-nav").children().last().addClass("active")
 })

@@ -47,17 +47,7 @@ $(function() {
             paging: true,
 
             rowClick: function(item, i, e) {
-                //console.log(item["item"])
                 window.open("employee.php?id=" + item["item"]["id"], "_self")
-                    /* $.ajax({
-                         type: "GET",
-                         url: "library/employeeController.php?id="+item["item"]["id"],
-                         data: "body",
-                         processData: false,
-                         contentType: false
-                     }).then((data)=>{
-                         console.log(data)
-                     });*/
             },
 
             data: employeesList,
@@ -117,6 +107,37 @@ $(function() {
         getEmployees()
     }
 
+    function getCountSession() {
+        let time;
+        setInterval (()=> {
+            if(time <= 600 || time == undefined) {
+                $.ajax({
+                    type: "GET",
+                    url: "library/sessionHelper.php?method=getTimeLogged",
+                    processData: false,
+                    contentType: false
+                }).then((data) => {
+                    time = data;
+                    console.log(time);
+                })
+            } else if(time > 600) {
+                $.ajax({
+                    type: "GET",
+                    url: "library/sessionHelper.php?method=closeSession",
+                    processData: false,
+                    contentType: false
+                }).then((data) => {
+                    console.log(data);
+                    window.location.reload();
+                    return
+                })
+            }
+            
+        }, 1000)
+    }
+    getCountSession();
 
     load()
+    $("ul.navbar-nav").children().first().addClass("active")
+
 })
