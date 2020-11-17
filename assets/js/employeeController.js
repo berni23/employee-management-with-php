@@ -36,7 +36,14 @@ $(function() {
             inputAge.val(data["age"]);
             inputPC.val(data["postalCode"]);
             inputPhone.val(data["phoneNumber"]);
-
+            if (data["profileImg"]) {
+                $("#imageWrapper").append(`<img src="${data["profileImg"]}" width="70px" data-gender="${data["gender"]}" data-age="${data["age"]}" />`)
+                $("#imageWrapper > img").click((e) => {
+                    getAvatars($(e.currentTarget).attr("data-gender"), $(e.currentTarget).attr("data-age"))
+                })
+            } else {
+                getAvatars(data["gender"], data["age"])
+            }
 
         });
     }
@@ -66,6 +73,7 @@ $(function() {
 
         });
     })
+
     document.getElementById("return").addEventListener("click", (e) => {
         console.log("something")
         e.preventDefault();
@@ -101,8 +109,42 @@ $(function() {
 
         }, 1000)
     }
+
+    function getAvatars(gender, age) {
+        let genders;
+        if (gender == "man") {
+            genders = "male";
+        } else if (gender = "woman") {
+            genders = "female"
+        }
+        $.ajax({
+            type: "GET",
+            url: "imageGallery.php?limit=7&gender=" + genders + "&age=" + age,
+            processData: false,
+            contentType: false
+        }).then((data) => {
+            console.log(data);
+            data = JSON.parse(data)
+            $("#imageWrapper").empty();
+            for (let i = 0; i < data.length; i++) {
+                $("#imageWrapper").append(`<img src="${data[i].photo}" width="70px" />`)
+            }
+            $("#imageWrapper > img").click((e) => {
+                console.log("hey")
+                $('.selected').removeClass('selected');
+                $(e.currentTarget).addClass('selected');
+                $("#profileImgInput").val($(e.currentTarget).attr("src"))
+            })
+        })
+    }
     getCountSession();
     $("ul.navbar-nav").children().last().addClass("active")
-
-
+    $("#registerButton").click((e) => {
+        e.preventDefault();
+        console.log("llego")
+        var body = new FormData()
+        body.append("registerUser", "true")
+        window.location.href = "../register"
+        return false;
+    })
 })
