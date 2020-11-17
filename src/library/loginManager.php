@@ -14,6 +14,7 @@ function validateLogin($userName, $password)
                 $_SESSION["uid"] = $user["userId"];
                 $_SESSION["email"] = $user["email"];
                 $_SESSION["timeLogged"] = time();
+                return "valid";
                 header("Location: ../dashboard.php");
             }
             return "Password is wrong";
