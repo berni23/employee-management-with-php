@@ -17,7 +17,7 @@ function validateLogin($userName, $password)
                 return "valid";
                 header("Location: ../dashboard.php");
             }
-            return "Password is wrong";
+            return "Password is wrong.";
         }
     }
     return "This user was not found.";
