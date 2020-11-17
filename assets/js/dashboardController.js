@@ -111,6 +111,7 @@ $(function() {
                 { name: "gender", type: "text", width: 80 },
                 { name: "age", type: "number" },
                 { type: "control", editButton: false }
+
             ]
         });
     }
