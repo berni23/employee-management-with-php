@@ -21,7 +21,7 @@ if (isset($_SESSION["userName"]) && isset($_SESSION["uid"]) && isset($_SESSION["
 </head>
 
 <body>
-    <form class="form-signin" method="post" action="src/library/loginController.php">
+    <form class="form-signin" id="form-login">
         <!--<img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputUserName" class="sr-only">Username</label>
