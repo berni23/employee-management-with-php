@@ -19,6 +19,18 @@ $(function() {
                 console.log(data)
                 if (data == "valid") {
                     window.open("src/dashboard.php", "_self")
+                } else if(data == "This user was not found.") {
+                    $("#validationServerUserNameFeedback").remove()
+                    $("#inputUserName").removeClass("is-valid").addClass("is-invalid").after(`<div id="validationServerUserNameFeedback" class="invalid-feedback">
+                    ${data}
+                  </div>`)
+                } else if(data == "Password is wrong.") {
+                    $("#validationServerPasswordFeedback").remove()
+                    $("#validationServerUserNameFeedback").remove()
+                    $("#inputUserName").removeClass("is-invalid").addClass("is-valid")
+                    $("#inputPassword").removeClass("is-valid").addClass("is-invalid").after(`<div id="validationServerPasswordFeedback" class="invalid-feedback">
+                    ${data}
+                  </div>`)
                 }
             })
             return false;

@@ -21,8 +21,8 @@ switch ($method) {
                 die();
             } 
         }
-        addEmployee(($_POST));
-        //print_r($_POST);
+        addEmployee($_POST);
+        print_r($_POST);
 
         break;
     case 'GET':
