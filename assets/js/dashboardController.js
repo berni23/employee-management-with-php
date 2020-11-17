@@ -108,8 +108,8 @@ $(function() {
                 { name: "name", type: "text", width: 100, validate: "required" },
                 { name: "lastName", type: "text", width: 100 },
                 { name: "email", type: "text", width: 200 },
-                { name: "gender", type: "text", width: 80 },
-                { name: "age", type: "number" },
+                { name: "gender", type: "text", width: 80 , validate: "required" },
+                { name: "age", type: "number" , validate: "required" },
                 { type: "control", editButton: false }
 
             ]

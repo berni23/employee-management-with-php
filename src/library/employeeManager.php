@@ -97,6 +97,9 @@ function updateEmployee(array $updateEmployee)
         if ($keys[$i] == "city") {
             $newEmployee["city"] = $updateEmployee[$keys[$i]];
         }
+        if ($keys[$i] == "profileImg") {
+            $newEmployee["profileImg"] = $updateEmployee[$keys[$i]];
+        }
     }
     
     $string = file_get_contents("../../resources/employees.json");
