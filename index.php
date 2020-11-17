@@ -16,7 +16,7 @@ if (isset($_SESSION["userName"]) && isset($_SESSION["uid"]) && isset($_SESSION["
     <link rel="stylesheet" href="assets/css/login.css?v=<?php echo time(); ?>">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/loginController.js"></script>
+    <script src="assets/js/loginController.js?v=<?php echo time(); ?>"></script>
     <title>Login - Foo</title>
 </head>
 
