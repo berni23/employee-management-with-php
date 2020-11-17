@@ -76,3 +76,7 @@ body {
 #registerButton:hover {
     color: blue;
 }
+
+.hidden {
+    display: none;
+}
