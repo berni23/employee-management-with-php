@@ -79,6 +79,7 @@ $(function () {
         e.stopPropagation();
         window.open("dashboard.php", "_self");
     })
+
     function getCountSession() {
         let time;
         setInterval(() => {

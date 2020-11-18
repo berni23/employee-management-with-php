@@ -19,15 +19,9 @@ function addEmployee(array $newEmployee)
 
     $employees = json_decode($string, true);
 
-    $highestId = 0; 
+    $highestId = getNextIdentifier($employees); 
 
-    foreach ($employees as $i => $employee) {
-        if ($employee["id"] > $highestId) {
-            $highestId = $employee["id"];
-        }
-    }
-
-    $newEmployee["id"] = $highestId + 1;
+    $newEmployee["id"] = $highestId ;
 
     array_push($employees, $newEmployee);
 
@@ -135,17 +129,33 @@ function getEmployee(string $id)
 function removeAvatar($id)
 {
     // TODO implement it
+    $employee = getEmployee($id);
+    $newEmployee = $employee;
+    $newEmployee["profileImg"] = "";
+    
+    $string = file_get_contents("../../resources/employees.json");
+    $employees = json_decode($string, true);
+    $i = array_search($employee, $employees);
+    $employees[$i] = $newEmployee;
+    file_put_contents("../../resources/employees.json", json_encode($employees));
 }
 
 
 function getQueryStringParameters(): array
 {
     // TODO implement it
-    return array();
+    return $_GET;
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
     // TODO implement it
-    return 0;
+    $highestId = 0;
+    foreach ($employeesCollection as $i => $employee) {
+        if ($employee["id"] >= $highestId) {
+            $highestId = $employee["id"];
+        }
+    }
+    $highestId++;
+    return $highestId;
 }

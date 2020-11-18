@@ -1,8 +1,4 @@
 <?php
-//require_once "../../vendor/autoload.php";
-
-
-
 function callAPI($key, $gender, $age)
 {
 
