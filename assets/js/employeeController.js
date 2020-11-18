@@ -44,7 +44,6 @@ $(function () {
             } else {
                 getAvatars(data["gender"], data["age"])
             }
-
         });
     }
     getEmployee();
