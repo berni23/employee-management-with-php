@@ -24,6 +24,9 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
 <body>
 <?php include "../assets/header.html"; ?>
     <div class="container">
+
+        <div id="avatar"></div>
+
         <form id="updateEmployeeForm">
             <div class="form-row" id="imageWrapper">
 
@@ -92,7 +95,6 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
                     <button class="btn btn-secondary" id="return">Return</button>
                 </div>
             </div>
-
         </form>
     </div>
     <div id="msgWrapper"></div>
