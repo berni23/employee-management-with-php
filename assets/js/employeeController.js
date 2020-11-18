@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     var id;
 
     function getEmployee() {
@@ -36,9 +36,11 @@ $(function () {
             inputAge.val(data["age"]);
             inputPC.val(data["postalCode"]);
             inputPhone.val(data["phoneNumber"]);
+            $("#profileImgInput").val(data["profileImg"]);
             if (data["profileImg"]) {
+                console.log(data["profileImg"])
                 $("#imageWrapper").append(`<img src="${data["profileImg"]}" width="70px" data-gender="${data["gender"]}" data-age="${data["age"]}" />`)
-                $("#imageWrapper > img").click((e)=>{
+                $("#imageWrapper > img").click((e) => {
                     getAvatars($(e.currentTarget).attr("data-gender"), $(e.currentTarget).attr("data-age"))
                 })
             } else {
@@ -49,7 +51,7 @@ $(function () {
     getEmployee();
     $("#updateEmployeeForm").on("submit", (e) => {
         e.preventDefault()
-        console.log("banana")
+        console.log(e.currentTarget.profileImg)
 
         var body = new FormData(e.currentTarget);
         body.append("id", id);
@@ -108,6 +110,7 @@ $(function () {
 
         }, 1000)
     }
+
     function getAvatars(gender, age) {
         let genders;
         if (gender == "man") {

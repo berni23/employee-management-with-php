@@ -211,18 +211,14 @@ curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, true);// saying cUrl to return
   
 $apiResponse = curl_exec($curlHandler);  
 curl_close($curlHandler);  
-  
 $decodedResponse = json_decode($apiResponse);  
-  
 ```  
-  
 #### Post Request  
 ```  
 <?php  
   
 $postData = [  
  'parameter1' => 'foo', 'parameter2' => 'bar'];  
-  
 $curlHandler = curl_init('http://hostname.com/api/resource');  
 curl_setopt($curlHandler, CURLOPT_POSTFIELDS, $postData);  
 curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, true);// saying cUrl to return the response in the cUrl exec call  
@@ -233,7 +229,6 @@ curl_close($curlHandler);
 $decodedResponse = json_decode($apiResponse);  
   
 ```  
-  
 #### Delete Request  
 ````  
 $curlHandler = curl_init('http://hostname.com/api/resource');  
