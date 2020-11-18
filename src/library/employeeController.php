@@ -17,9 +17,9 @@ switch ($method) {
         if (isset($_POST["method"])) {
             if ($_POST["method"] == "updateEmployee") {
                 //print_r($_POST);
-               updateEmployee($_POST);
+                updateEmployee($_POST);
                 die();
-            } 
+            }
         }
         addEmployee($_POST);
         print_r($_POST);
