@@ -17,7 +17,7 @@ if (!isset($_SESSION["userName"]) && !isset($_SESSION["uid"]) && !isset($_SESSIO
     <link rel="stylesheet" href="../assets/css/main.css?v=<?php echo time(); ?>">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../assets/js/employeeController.js"></script>
+    <script src="../assets/js/employeeController.js?v=<?php echo time(); ?>" ></script>
     <title>Employee</title>
 </head>
 
