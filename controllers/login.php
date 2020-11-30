@@ -4,8 +4,8 @@ class login extends controller
 {
 
 
-    public $username = "admin";
-    public $password = "123456";
+    //public $username = "admin";
+    //public $password = "123456";
 
 
     public function __construct()
@@ -29,7 +29,8 @@ class login extends controller
     // }
     private function validate($username, $password)
     {
-
+        $loginModel = new LoginModel();
+        $loginModel->verifyuser($username, $password);
         return ($username == $this->username && $password == $this->password);
 
         //$model = new loginModel();
