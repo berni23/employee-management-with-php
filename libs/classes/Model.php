@@ -5,9 +5,12 @@
 <?php
 
 
-abstract class model
+abstract class Model
 {
-    public function __construct() {
+
+    public $db;
+    public function __construct()
+    {
         $this->db = new Database;
     }
 

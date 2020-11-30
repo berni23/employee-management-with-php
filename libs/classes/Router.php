@@ -34,7 +34,6 @@ class Router
 
             if (isset($url[1]))   $controller->{$url[1]}();
         } else {
-
             // new error()
             // require_once 'controllers/error.php';
             $controller = 'error';
