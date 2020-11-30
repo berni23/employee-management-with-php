@@ -1,18 +1,16 @@
 
-
 <?php
 
 
 class Router
 {
-
     public function __construct()
     {
         if (!isset($_SESSION['userName'])) new login();
         else  $this->route();
     }
 
-    private function urlParams(): array
+    private function urlParams()
     {
         $url = rtrim($_GET['url'], '/');
         return  explode('/', $url);
@@ -26,12 +24,13 @@ class Router
     private function route(): void
     {
 
+        echo 're-routing..';
         $fileController = $this->getController();
 
+        echo $fileController;
         if (file_exists($fileController)) {
             require_once $fileController;
             $controller = new $url[0];
-
             if (isset($url[1]))   $controller->{$url[1]}();
         } else {
             // new error()

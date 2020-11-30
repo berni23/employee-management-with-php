@@ -15,12 +15,9 @@
 <body>
     <?php include "assets/header.html"; ?>
     <div class="container">
-
         <div id="avatar"></div>
-
         <form id="updateEmployeeForm">
             <div class="form-row" id="imageWrapper">
-
             </div>
             <input type="text" class="hidden" id="profileImgInput" name="profileImg">
             <div class="form-row">

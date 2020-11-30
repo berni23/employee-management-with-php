@@ -19,7 +19,7 @@ class LoginModel extends Model
         unset($_SESSION["uid"]);
         unset($_SESSION["email"]);
         session_destroy();
-        header("Location: ../..");
+        header("Location: / ");
     }
 }
 
