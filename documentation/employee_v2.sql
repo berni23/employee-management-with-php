@@ -96,10 +96,6 @@ COMMIT;
 
 
 
-
-
-
-
 INSERT INTO employees(id,name,lastName,email,gender,city,streetAddress,state,age,postalCode,phoneNumber,profileImg) VALUES (1,'Rack','Lei','jackon@network.com','M','San Jone',126,'CA',24,394221,7383627627,'https://images.pexels.com/photos/1438275/pexels-photo-1438275.jpeg?auto=compress&cs=tinysrgb&crop=faces&fit=crop&h=200&w=200');
 INSERT INTO employees(id,name,lastName,email,gender,city,streetAddress,state,age,postalCode,phoneNumber,profileImg) VALUES (2,'John','Doe','jhondoe@foo.com','M','New York',89,'WA',34,09889,1283645645,NULL);
 INSERT INTO employees(id,name,lastName,email,gender,city,streetAddress,state,age,postalCode,phoneNumber,profileImg) VALUES (3,'Leilas','Mills','mills@leila.com','M','San Diego',55,'CA',29,098765,9983632461,NULL);
