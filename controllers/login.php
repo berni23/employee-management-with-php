@@ -2,23 +2,32 @@
 
 class login extends controller
 {
-    public function __construct()
+
+    public function validate()
     {
-        parent::__construct();
         $this->model = new LoginModel();
-
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            $validate = $this->validate($_POST['username'], $_POST['password']);
-            if ($validate) {
-                $_SESSION['userName'] = $_POST['username'];
-
-                header('Location: ' . BASE_URL . '/dashboard/show');
-            }
-        } else  $this->view->render('loginView.php');
+            $validate = $this->model->verifyuser($_POST['username'], $_POST['password']);
+            if ($validate) $this->logIn();
+            else  header('Location: ' . BASE_URL . '/login/error');
+        } else  $this->show();
     }
 
-    private function validate($username, $password)
+    public function show()
     {
-        return $this->model->verifyuser($username, $password);
+        $this->view->render('loginView.php');
+    }
+
+    public function logIn()
+    {
+        $_SESSION['userName'] = $_POST['username'];
+        header('Location: ' . BASE_URL . '/dashboard/show');
+    }
+
+    public function error()
+    {
+
+        $error = true;
+        $this->show();
     }
 }

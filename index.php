@@ -1,6 +1,9 @@
 <?php
 
 
+
+
+
 require_once 'config/constants.php';
 
 // require_once 'includes/autoloader.php';
@@ -13,7 +16,6 @@ require_once  CLASSES . '/view.php';
 
 require_once 'models/loginModel.php';
 require_once 'models/dashboardModel.php';
-require_once 'controllers/login.php';
 
 require_once  CLASSES . '/Router.php';
 
