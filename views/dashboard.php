@@ -16,6 +16,8 @@
 </head>
 
 <body>
+
+    <h1>DASHBOARD</h1>
     <?php include "assets/header.html"; ?>
     <main class="container">
         <div id="jsGrid"></div>

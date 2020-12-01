@@ -1,6 +1,8 @@
 <?php
 class Database
 {
+
+
     function connect()
     {
         try {
