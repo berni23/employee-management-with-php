@@ -30,7 +30,9 @@ class Router
         echo $fileController;
         if (file_exists($fileController)) {
             require_once $fileController;
+
             $controller = new $url[0];
+
             if (isset($url[1]))   $controller->{$url[1]}();
         } else {
             // new error()
