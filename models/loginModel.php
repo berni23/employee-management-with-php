@@ -6,7 +6,7 @@ class LoginModel extends Model
     public function verifyUser($user, $password)
     {
         $pdo = $this->db->connect();
-        $result = $pdo->query("SELECT * FROM users WHERE name = '$user' and password = '$password'.;");
+        $result = $pdo->query("SELECT * FROM users WHERE name = '$user' and password = '$password';");
 
         $user =   $result->fetch(PDO::FETCH_ASSOC);
 

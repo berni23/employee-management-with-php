@@ -10,7 +10,8 @@ class login extends controller
             $validate = $this->validate($_POST['username'], $_POST['password']);
             if ($validate) {
                 $_SESSION['userName'] = $_POST['username'];
-                header('Location: index.php/dashboard/show');
+
+                header('Location: ' . BASE_URL . '/dashboard/show');
             }
         } else  $this->view->render('login.php');
     }
