@@ -4,7 +4,6 @@
 
 class Router
 {
-
     private $url;
     public function __construct()
     {
@@ -30,7 +29,6 @@ class Router
     private function route(): void
     {
 
-        echo 're-routing..';
         $fileController = $this->getController();
         if (file_exists($fileController)) {
             require_once $fileController;
