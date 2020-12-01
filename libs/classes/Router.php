@@ -8,7 +8,7 @@ class Router
     public function __construct()
     {
         session_start();
-        //unset($_SESSION['userName']);
+        // unset($_SESSION['userName']);
         if (!isset($_SESSION['userName'])) new login();
         else  $this->route();
     }

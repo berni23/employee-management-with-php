@@ -12,6 +12,6 @@ class dashboardModel extends Model
 
         $pdo = $this->db->connect();
         $result = $pdo->query("SELECT * FROM employees;");
-        return $result->fetch(PDO::FETCH_ASSOC);
+        return $result->fetchAll();
     }
 }
