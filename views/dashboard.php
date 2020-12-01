@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!--    ?v= echo time(); ?>"> -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="node_modules/jsgrid/dist/jsgrid.min.css" />
