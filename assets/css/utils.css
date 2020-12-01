@@ -1,0 +1,43 @@
+/**UTILS**/
+
+.hide {
+    display: none !important;
+}
+
+
+/* MESSAGE */
+
+/* -> styles for the function message in utils.js,  displays the message coming from the php file as a response */
+
+.info-window {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    padding: 15px;
+    font-size: 20px !important;
+    background-color: whitesmoke !important;
+    border-radius: 5px !important;
+    box-shadow: 0 0 5px black !important;
+    transform: scale(1.1) !important;
+    z-index: 1000 !important;
+    opacity: 0 !important;
+    transition: visibility 0s linear 0.25s, opacity 0.25s linear 0s, transform 0.25s;
+}
+
+.show-info {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline !important;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s,
+        opacity 0.25s 0s transform 0.25s !important;
+    z-index: 1000 !important;
+}
+
+.success {
+    background-color: #90EE90 !important;
+}
+
+.error {
+    background-color: #ffcccb !important;
+}

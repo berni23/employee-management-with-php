@@ -14,10 +14,6 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.hidden {
-    display: none;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 .form-signin {
@@ -80,4 +76,11 @@ body {
 
 .hidden {
     display: none;
+}
+
+
+.error {
+
+
+    color: red;
 }

@@ -8,12 +8,29 @@ class Router
     public function __construct()
     {
         session_start();
+        $this->urlParams();
         // unset($_SESSION['userName']);
-        if (!isset($_SESSION['userName'])) new login();
-        else  $this->route();
+        if (!isset($_SESSION['userName']) && (($this->url[0]) !== 'login')) {
+
+            // echo
+
+            //  echo ($this->url[0]);
+
+            // new login();
+
+            // require_once 'controllers/login.php';
+
+
+            echo ($this->url[0]);
+            if (!isset($_SESSION['hey'])); {
+                header('Location: ' . BASE_URL . '/login/show');
+
+                $_SESSION['hey'] = true;
+            }
+        } else  $this->route();
     }
 
-    private function urlParams()
+    private function urlParams(): void
     {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         $url = rtrim($url, '/');
@@ -21,24 +38,28 @@ class Router
         $this->url = $url;
     }
 
-    private function getController(): string
-    {
-        $this->urlParams();
-        return 'controllers/' . $this->url[0] . '.php';
-    }
     private function route(): void
     {
 
-        $fileController = $this->getController();
+        echo json_encode($this->url);
+        $fileController = 'controllers/' . $this->url[0] . '.php';
         if (file_exists($fileController)) {
             require_once $fileController;
             $controller = new $this->url[0];
-            if (isset($this->url[1]))   $controller->{$this->url[1]}();
-        } else {
-            // new error()
-            // require_once 'controllers/error.php';
-            $controller = 'error';
-            //  $controller = new messageError();
+            if (isset($this->url[1]))
+
+                try {
+                    $controller->{$this->url[1]}();
+                } catch (Exception $e) {
+
+                    $this->notFound();
+                }
+            else  $this->notFound();
         }
+    }
+
+    private function notFound(): void
+    {
+        header('Location: ' . BASE_URL . '/error/notFound');
     }
 }
