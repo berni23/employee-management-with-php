@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include "assets/header.html"; ?>
+    <?php require_once "assets/header.php"; ?>
     <div class="container">
         <div id="avatar"></div>
         <form id="updateEmployeeForm">
@@ -86,7 +86,7 @@
         </form>
     </div>
     <div id="msgWrapper"></div>
-    <?php include "assets/footer.html"; ?>
+    <?php require_once "assets/footer.php"; ?>
 
 </body>
 
