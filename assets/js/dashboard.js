@@ -32,7 +32,7 @@ var gridObject = {
             return fetch(BASE_URL + "/dashboard/insertEmployees", {
                 method: 'POST',
                 body: JSON.stringify(item)
-            }).then(res => res.text()).then(res => load())
+            }).then(res => res.text()).then(res => load(res))
         },
 
         // function to update data
@@ -144,11 +144,29 @@ $('#grid_table').on("click", function (event) {
 })
 
 // Reload jsGrid and show execution message
-function load() {
+function load(res) {
 
+
+    console.log(res);
     $("#grid_table").jsGrid("loadData")
     //res = JSON.parse(res);
     //message(res['message'], res['status']);
 
 
+}
+
+function insert() {
+
+    var insertRow = $('.jsgrid-insert-row');
+
+    var data = ['bernat', 'email@email.com', '26', '100', 'Barcelona', 'CAT', '8080', '123456789']
+
+    var i = 0;
+    insertRow.children('td').each(function () {
+        if (!$(this).hasClass('hide') && !$(this).hasClass('jsgrid-control-field')) {
+            $(this).find('input').val(data[i]);
+            i++;
+
+        }
+    })
 }
