@@ -1,10 +1,7 @@
 //* grid object -> defines the features of jsGrid Object. for more information :  https://www.npmjs.com/package/gridjs
 
 
-
 const BASE_URL = $("main").attr('data-path');
-
-console.log(BASE_URL);
 var gridObject = {
     width: "100%",
     height: "400px",
