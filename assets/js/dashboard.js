@@ -23,17 +23,19 @@ var gridObject = {
         // Dowload data from employee.json and populate jsGrid
         loadData: function () {
             return fetch(BASE_URL + "/dashboard/getAllEmployees").then(res => res.text()).then(function (res) {
-                console.log('jeeeelou', res);
+                //console.log('jeeeelou', res);
                 return JSON.parse(res);
             });
         },
 
         // function to insert new data
         insertItem: function (item) {
-            return fetch("library/employeeController.php", {
+            console.log('hola');
+            console.log(item);
+            return fetch(BASE_URL + "/dashboard/insertEmployees", {
                 method: 'POST',
                 body: JSON.stringify(item)
-            }).then(res => res.text()).then(res => load(res))
+            }).then(res => res.text()).then(res => load())
         },
 
         // function to update data
@@ -41,7 +43,7 @@ var gridObject = {
             return fetch("library/employeeController.php", {
                 method: 'PUT',
                 body: JSON.stringify(item)
-            }).then(res => res.text()).then(res => load(res))
+            }).then(res => res.text()).then(res => load())
         },
 
         // function to delete data
@@ -49,7 +51,7 @@ var gridObject = {
             return fetch("library/employeeController.php", {
                 method: 'DELETE',
                 body: JSON.stringify(item)
-            }).then(res => res.text()).then(res => load(res))
+            }).then(res => res.text()).then(res => load())
         }
     },
 
@@ -62,13 +64,13 @@ var gridObject = {
         {
             name: "name",
             type: "text",
-            width: 80,
+            width: 40,
             validate: "required"
         },
         {
             name: "email",
             type: "text",
-            width: 100,
+            width: 70,
             validate: function validateEmail(email) {
                 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(String(email).toLowerCase())
@@ -93,12 +95,12 @@ var gridObject = {
         {
             name: "city",
             type: "text",
-            width: 60
+            width: 40
         },
         {
             name: "state",
             type: "text",
-            width: 20
+            width: 40
         },
         {
             name: "postalCode",
@@ -145,11 +147,11 @@ $('#grid_table').on("click", function (event) {
 })
 
 // Reload jsGrid and show execution message
-function load(res) {
+function load() {
 
     $("#grid_table").jsGrid("loadData")
-    res = JSON.parse(res);
-    message(res['message'], res['status']);
+    //res = JSON.parse(res);
+    //message(res['message'], res['status']);
 
 
 }
