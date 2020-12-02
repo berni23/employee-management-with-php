@@ -26,7 +26,6 @@ class login extends controller
 
     public function error()
     {
-
         $error = true;
         $this->view->render('loginView.php', $error);
     }

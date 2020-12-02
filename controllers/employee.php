@@ -9,9 +9,6 @@ class employee extends controller
     {
         $id = $_SESSION['employeeId'];
 
-
-        echo $_POST['name'];
-
         $data =
             [
                 'name' => $_POST['name'],
@@ -27,8 +24,8 @@ class employee extends controller
 
             ];
         $this->model = new employeeModel();
-        $employee = $this->model->updateById($id, $data);
-        $this->show(array('message' => ' employee updated successfully', 'status' => '200'));
+        $this->model->updateById($id, $data);
+        $this->show(array('message' => ' employee updated successfully', 'status' => 200));
     }
 
     function setId()
@@ -38,8 +35,6 @@ class employee extends controller
             $_SESSION['employeeId'] = $_POST['id'];
             echo 'success';
         } else echo 'error';
-
-        //  header("Location:" . BASE_URL . "/failure/notFound");
     }
     function show($msg = false)
     {

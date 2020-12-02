@@ -12,19 +12,14 @@
     <!-- js local scripts -->
 
     <script defer src="<?php echo BASE_URL ?>/assets/js/utils.js"></script>
-
-    <?php if ($msg) echo '
-    
-        <script>
-         message( ' . $msg['message'] . ',' . $msg['status'] . ')
-        </script>'; ?>
-
-    <title>Employee</title>
+    <script defer src="<?php echo BASE_URL ?>/assets/js/employee.js"></script>
+    <title data-status='<?php if ($msg)  echo $msg['status']; ?>' data-message='<?php if ($msg)  echo $msg['message']; ?>'>Employee</title>
 </head>
+
 
 <body>
 
-    <div class="infoWindow"></div>
+    <div class="info-window hide"></div>
     <?php require_once  "views/headerView.php"; ?>
     <div class="container">
         <div id="avatar"></div>
