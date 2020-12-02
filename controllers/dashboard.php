@@ -31,6 +31,10 @@ class dashboard extends controller
 
     public function deleteEmployees()
     {
-
+        $data = json_decode(file_get_contents('php://input'), true);
+        var_dump($data['id']);
+        
+        $this->model = new dashboardModel();
+        echo $this->model->deleteEmployee($data['id']);
     }
 }

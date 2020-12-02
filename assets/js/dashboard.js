@@ -34,7 +34,7 @@ var gridObject = {
                 body: JSON.stringify(item)
             }).then(res => res.text()).then(function (res) {
                 console.log(res);
-                load()
+                load();
             });
         },
 
@@ -48,10 +48,13 @@ var gridObject = {
 
         // function to delete data
         deleteItem: function (item) {
-            return fetch("library/employeeController.php", {
+            return fetch(BASE_URL + "/dashboard/deleteEmployees", {
                 method: 'DELETE',
                 body: JSON.stringify(item)
-            }).then(res => res.text()).then(res => load())
+            }).then(res => res.text()).then(function (res) {
+                console.log(res);
+                load();
+            })
         }
     },
 
