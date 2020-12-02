@@ -17,8 +17,6 @@ class dashboardModel extends Model
     {
         try {
             $pdo = $this->db->connect();
-
-
             $sql = "INSERT INTO employees (name,email,age,streetAddress,city,state,postalCode,phoneNumber) 
                 VALUES (:name,:email,:age,:streetAddress,:city,:state,:postalCode,:phoneNumber)";
             $stmt = $pdo->prepare($sql);
