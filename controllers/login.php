@@ -29,4 +29,11 @@ class login extends controller
         $error = true;
         $this->view->render('loginView.php', $error);
     }
+
+    public function logout()
+    {
+        unset($_SESSION['userName']);
+        unset($_SESSION['employeeId']);
+        header('Location: ' . BASE_URL . '/login');
+    }
 }
