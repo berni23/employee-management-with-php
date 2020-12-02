@@ -35,7 +35,10 @@ var gridObject = {
             return fetch(BASE_URL + "/dashboard/insertEmployees", {
                 method: 'POST',
                 body: JSON.stringify(item)
-            }).then(res => res.text()).then(res => load())
+            }).then(res => res.text()).then(function(res){ 
+                console.log(res); 
+                load()
+            });
         },
 
         // function to update data
