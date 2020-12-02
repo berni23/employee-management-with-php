@@ -15,7 +15,8 @@ class employee extends controller
                 'city' => $_POST['city'],
                 'state' => $_POST['state'],
                 'postalCode' => $_POST['postalCode'],
-                'phoneNumber' => $_POST['phoneNumber']
+                'phoneNumber' => $_POST['phoneNumber'],
+                'profileImg' => $_POST['profileImg']
             ];
         $this->model = new employeeModel();
         if ($this->model->updateById($id, $data)) $this->show(array('message' => 'employee updated successfully', 'status' => 200));

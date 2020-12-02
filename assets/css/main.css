@@ -66,6 +66,7 @@ body {
   width: 500px;
   margin-left: 20%;
   margin-top: 50px;
+  margin-bottom: 50px;
   justify-content: space-between;
 }
 
@@ -86,6 +87,7 @@ body {
 #avatar-chosen {
   width: 50%;
   margin-top: 20px;
+  margin-bottom: 50px;
   margin-left: 25%;
 }
 
@@ -135,4 +137,25 @@ body {
 
 .hide {
   display: none !important;
+}
+
+.spinner-wrapper {
+
+  margin-bottom: 50px;
+}
+
+/* .spinner-wrapper {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+} */
+
+.spinner-wrapper strong {
+
+  margin-top: 10px;
+}
+
+.spinner-border {
+  width: 100px;
+  height: 100px
 }

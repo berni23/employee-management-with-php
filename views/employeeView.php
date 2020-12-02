@@ -14,6 +14,9 @@
     <script defer src="<?php echo BASE_URL ?>/assets/js/utils.js"></script>
     <script defer src="<?php echo BASE_URL ?>/assets/js/employee.js"></script>
     <title data-status='<?php if ($msg)  echo $msg['status']; ?>' data-message='<?php if ($msg)  echo $msg['message']; ?>'>Employee</title>
+
+
+
 </head>
 
 
@@ -21,12 +24,29 @@
 
     <div class="info-window hide"></div>
     <?php require_once  "views/headerView.php"; ?>
+
+    <!-- element populated with images from the api-->
+    <div id="avatar-container" class="hide"></div>
+
+    <!-- spinner for loading images -->
+    <div class="row spinner-wrapper hide flex-column align-items-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="row">
+            <strong>Loading images, please wait..</strong>
+        </div>
+
+    </div>
+
+    <!-- avatar chosen-->
+    <div id="avatar-chosen" class="hide">
+        <img src="<?php echo ($employee['profileImg'] ? $employee['profileImg'] : "") ?>" alt="">
+    </div>
     <div class="container">
-        <div id="avatar"></div>
         <form id="updateEmployeeForm" method="POST" action=<?php echo BASE_URL . '/employee/updateEmployees' ?>>
-            <div class="form-row" id="imageWrapper">
-            </div>
-            <input type="text" class="hide" id="profileImgInput" name="profileImg">
+
+            <input type="text" class="hide" <?php if ($employee['profileImg']) echo 'value = ' . $employee['profileImg'] ?> id="profileImgInput" name="profileImg">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Name</label>
@@ -93,7 +113,7 @@
             </div>
         </form>
     </div>
-    <?php require_once   "views/footerView.php"; ?>
+    <?php require_once "views/footerView.php"; ?>
 </body>
 
 </html>
