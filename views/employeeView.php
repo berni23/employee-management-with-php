@@ -7,20 +7,28 @@
     <script src="<?php echo BASE_URL ?>/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo BASE_URL ?>/assets/css/main.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>/assets/css/utils.css">
 
     <!-- js local scripts -->
 
-    <script defer src="<?php echo BASE_URL ?>/assets/js/employee.js"></script>
     <script defer src="<?php echo BASE_URL ?>/assets/js/utils.js"></script>
+
+    <?php if ($msg) echo '
+    
+        <script>
+         message( ' . $msg['message'] . ',' . $msg['status'] . ')
+        </script>'; ?>
 
     <title>Employee</title>
 </head>
 
 <body>
+
+    <div class="infoWindow"></div>
     <?php require_once  "views/headerView.php"; ?>
     <div class="container">
         <div id="avatar"></div>
-        <form id="updateEmployeeForm">
+        <form id="updateEmployeeForm" method="POST" action=<?php echo BASE_URL . '/employee/updateEmployees' ?>>
             <div class="form-row" id="imageWrapper">
             </div>
             <input type="text" class="hide" id="profileImgInput" name="profileImg">
@@ -31,7 +39,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputLName">Last name</label>
-                    <input type="text" name="lname" value=<?php echo $employee['lastName'] ?> class="form-control" id="inputLName">
+                    <input type="text" name="lastName" value=<?php echo $employee['lastName'] ?> class="form-control" id="inputLName">
                 </div>
             </div>
             <div class="form-row">
@@ -58,7 +66,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputAddress">Street address</label>
-                    <input type="text" name="address" value=<?php echo $employee['streetAddress'] ?> class="form-control" id="inputAddress">
+                    <input type="text" name="streetAddress" value=<?php echo $employee['streetAddress'] ?> class="form-control" id="inputAddress">
                 </div>
             </div>
             <div class="form-row">
@@ -74,11 +82,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputPC">Postal code</label>
-                    <input type="number" name="pc" value=<?php echo $employee['postalCode'] ?> class="form-control" id="inputPC">
+                    <input type="number" name="postalCode" value=<?php echo $employee['postalCode'] ?> class="form-control" id="inputPC">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPhone">Phone number</label>
-                    <input type="number" name="phone" class="form-control" value=<?php echo $employee['phoneNumber'] ?> id="inputPhone">
+                    <input type="number" name="phoneNumber" class="form-control" value=<?php echo $employee['phoneNumber'] ?> id="inputPhone">
                 </div>
             </div>
             <div class="form-row">
@@ -91,7 +99,6 @@
             </div>
         </form>
     </div>
-    <div id="msgWrapper"></div>
     <?php require_once   "views/footerView.php"; ?>
 
 </body>
