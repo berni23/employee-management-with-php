@@ -111,11 +111,14 @@ initialize();
 
 function initialize() {
 
-    $('#grid_table').jsGrid(gridObject); // Initialize jsGrid
+    // Initialize jsGrid
+    $('#grid_table').jsGrid(gridObject);
     setTimeout(() => $("#grid_table").jsGrid("loadData"), 1000);
     // To controller nav index
-    document.getElementById('dashboardPage').style.color = 'blue';
-    document.getElementById('dashboardPage').style.fontWeight = 'bold';
+    $('#dashboardPage').css({
+        'color': 'blue',
+        'fontWeight': 'bold'
+    });
 
 
 
