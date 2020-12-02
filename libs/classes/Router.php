@@ -8,8 +8,8 @@ class Router
     public function __construct()
     {
         session_start();
+        sessionHelper::manageTimer();
         $this->urlParams();
-        //unset($_SESSION['userName']);
         if (!strlen($this->url[0]) || (!isset($_SESSION['userName']) && (($this->url[0]) !== 'login'))) {
             header('Location: ' . BASE_URL . '/login');
         } else  $this->route();

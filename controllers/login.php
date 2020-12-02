@@ -21,6 +21,10 @@ class login extends controller
     public function startSession()
     {
         $_SESSION['userName'] = $_POST['username'];
+        $_SESSION['start'] = time();
+
+        // Ending a session in 10 minutes from the starting time.
+        $_SESSION['expire'] = $_SESSION['start'] + (10 * 60);
         header('Location: ' . BASE_URL . '/dashboard');
     }
 
@@ -34,6 +38,7 @@ class login extends controller
     {
         unset($_SESSION['userName']);
         unset($_SESSION['employeeId']);
+        session_destroy();
         header('Location: ' . BASE_URL . '/login');
     }
 }
