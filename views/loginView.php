@@ -28,7 +28,7 @@
                 <input name="remember" type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <?php if ($error) echo '<p class="error"> Invalid username  or password</p>'; ?>
+        <?php if ($error) echo '<p class="error"> Invalid username or password</p>'; ?>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <input type="text" value="login" name="method" class="hidden">
 

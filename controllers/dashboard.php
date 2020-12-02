@@ -18,17 +18,17 @@ class dashboard extends controller
     public function insertEmployees()
     {
         $data = json_decode(file_get_contents('php://input'), true);
-
         $this->model = new dashboardModel();
-        echo $this->model->insertEmployee($data);
+        if ($this->model->insertEmployee($data)) echo json_encode(array('message' => ' employee inserted successfully', 'status' => 200));
+        else echo json_encode(array('message' => 'error, unable to insert employee', 'status' => 400));
     }
+
 
     public function deleteEmployees()
     {
         $data = json_decode(file_get_contents('php://input'), true);
-        var_dump($data['id']);
-
         $this->model = new dashboardModel();
-        echo $this->model->deleteEmployee($data['id']);
+        if ($this->model->deleteEmployee($data['id']))  echo json_encode(array('message' => 'delete successful', 'status' => 200));
+        else echo json_encode(array('message' => 'error, unable to delete', 'status' => 400));
     }
 }

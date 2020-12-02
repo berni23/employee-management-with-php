@@ -47,7 +47,6 @@
                     <select name="gender" id="inputGender" class="form-control">
                         <option selected>Choose...</option>
                         <?php
-
                         if ($employee['gender'] == 'M') echo ' <option selected value="M">M</option> <option value="F">F</option> ';
                         else  echo ' <option selected value="M">M</option><option  selected value="F">F</option>';
                         ?>
@@ -89,13 +88,12 @@
                     <button type="submit" class="btn btn-primary" id="submitEmployee">Submit</button>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-secondary" id="return">Return</button>
+                    <a href='<?php echo BASE_URL . '/dashboard' ?>' class="btn btn-secondary" id="return">Return</a>
                 </div>
             </div>
         </form>
     </div>
     <?php require_once   "views/footerView.php"; ?>
-
 </body>
 
 </html>
