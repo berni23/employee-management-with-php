@@ -26,6 +26,7 @@ class Router
 
     private function route(): void
     {
+
         $fileController = 'controllers/' . $this->url[0] . '.php';
         if (file_exists($fileController)) {
             require_once $fileController;
