@@ -17,7 +17,7 @@
 <body>
 
     <div class="info-window hidden"></div>
-    <form class="form-signin" id="form-login" method="POST" action="<?php echo BASE_URL ?>/login/validate">
+    <form class="form-signin" id="form-login" method="POST" action=<?php echo BASE_URL . '/login/validate' ?>>
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputUserName" class="sr-only">Username</label>
         <input name="username" type="text" id="inputUserName" class="form-control" placeholder="Username" required="" autofocus="">
