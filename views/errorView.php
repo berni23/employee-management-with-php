@@ -18,7 +18,7 @@
             background-image: url('<?php echo BASE_URL ?>/assets/img/error500.png');
             background-size: contain;
             background-attachment: fixed;
-            background-repeat: no-repeat
+            background-repeat: no-repeat;
         }
     </style>
 
