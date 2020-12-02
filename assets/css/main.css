@@ -35,6 +35,14 @@ body {
 
 /**DASHBOARD PAGE**/
 
+
+.jsgrid-edit-button,
+.jsgrid-update-button {
+
+  display: none !important
+}
+
+
 #grid_table {
   margin-top: 50px;
 }

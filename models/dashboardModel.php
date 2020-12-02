@@ -1,11 +1,8 @@
-
 <?php
-
 
 
 class dashboardModel extends Model
 {
-
     public function getAll()
     {
         $pdo = $this->db->connect();
@@ -30,10 +27,9 @@ class dashboardModel extends Model
                 'postalCode' => $data['postalCode'],
                 'phoneNumber' => $data['phoneNumber']
             ]);
-
             return true;
         } catch (PDOException $e) {
-            echo 'Ya existe el empleado';
+            echo $e;
             return false;
         }
     }
@@ -42,8 +38,6 @@ class dashboardModel extends Model
     {
         try {
             $pdo = $this->db->connect();
-
-
             $sql = "DELETE FROM employees WHERE id = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([

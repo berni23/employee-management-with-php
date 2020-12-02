@@ -10,7 +10,7 @@ class Router
         session_start();
         $this->urlParams();
         //unset($_SESSION['userName']);
-        if (!isset($_SESSION['userName']) && (($this->url[0]) !== 'login')) {
+        if (!strlen($this->url[0]) || (!isset($_SESSION['userName']) && (($this->url[0]) !== 'login'))) {
             header('Location: ' . BASE_URL . '/login');
         } else  $this->route();
     }
@@ -26,13 +26,11 @@ class Router
 
     private function route(): void
     {
-
         $fileController = 'controllers/' . $this->url[0] . '.php';
         if (file_exists($fileController)) {
             require_once $fileController;
             $controller = new $this->url[0];
-            if (isset($this->url[1]))    $controller->{$this->url[1]}();
-
+            if (isset($this->url[1]))  $controller->{$this->url[1]}();
             else $controller->{'show'}();
         } else  $this->notFound();
     }
