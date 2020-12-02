@@ -38,7 +38,7 @@ var gridObject = {
             });
         },
 
-        // function to update data
+        // // function to update data
         updateItem: function (item) {
             return fetch("library/employeeController.php", {
                 method: 'PUT',
@@ -140,10 +140,28 @@ function initialize() {
 $('#grid_table').on("click", function (event) {
     if (!$(event.target).is(":button") && !$(event.target).hasClass('jsgrid-control-field') && !$(event.target).parent().hasClass('jsgrid-control-field')) {
         var element = $('.jsgrid-selected-row');
+
+        console.log('event');
         if (element) {
-            var id = element.find('td.hide').text();
-            if (id) {
-                window.location = `employee.php?id=${id}`;
+            var _id = element.find('td.hide').text();
+
+            if (_id) {
+
+                var formData = new FormData();
+                formData.append('id', _id);
+
+                fetch(BASE_URL + "/employee/setId", {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(res => res.text()).then(function (res) {
+                        console.log(res);
+
+                        console.log('inside if');
+                        window.location.href = BASE_URL + '/employee';
+
+
+                    })
             }
         }
     }
