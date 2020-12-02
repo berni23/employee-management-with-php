@@ -124,3 +124,7 @@ body {
     font-size: 3.5rem;
   }
 }
+
+.hide {
+  display: none !important;
+}
