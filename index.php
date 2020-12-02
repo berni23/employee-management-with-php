@@ -16,6 +16,8 @@ require_once  CLASSES . '/view.php';
 
 require_once 'models/loginModel.php';
 require_once 'models/dashboardModel.php';
+require_once 'models/employeeModel.php';
+
 
 require_once  CLASSES . '/Router.php';
 
