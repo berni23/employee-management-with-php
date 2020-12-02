@@ -12,5 +12,5 @@ abstract class controller
 
     public $view;
 
-    // abstract static function show();
+    abstract public function show();
 }

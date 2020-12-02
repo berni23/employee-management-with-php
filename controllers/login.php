@@ -8,7 +8,7 @@ class login extends controller
         $this->model = new LoginModel();
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $validate = $this->model->verifyuser($_POST['username'], $_POST['password']);
-            if ($validate) $this->logIn();
+            if ($validate) $this->startSession();
             else  header('Location: ' . BASE_URL . '/login/error');
         } else  $this->show();
     }
@@ -18,7 +18,7 @@ class login extends controller
         $this->view->render('loginView.php');
     }
 
-    public function logIn()
+    public function startSession()
     {
         $_SESSION['userName'] = $_POST['username'];
         header('Location: ' . BASE_URL . '/dashboard/show');

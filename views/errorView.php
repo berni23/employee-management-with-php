@@ -4,27 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .error404 {
+
+            background-image: url('<?php echo BASE_URL ?>/assets/img/error404.jpg');
+            background-size: contain;
+            background-attachment: fixed;
+            background-repeat: no-repeat
+        }
+
+        .error500 {
+            background-image: url('<?php echo BASE_URL ?>/assets/img/error500.png');
+            background-size: contain;
+            background-attachment: fixed;
+            background-repeat: no-repeat
+        }
+    </style>
+
 </head>
 
-<style>
-    .error404 {
-        background-image: url('<?php echo BASE_URL ?>/assets/img/error404.jpg');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat
-    }
+<body class=<?php echo $error ?>>
 
-    .error500 {
-        background-image: url('<?php echo BASE_URL ?>/assets/img/error500.jpg');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat
-    }
-</style>
-
-
-
-<body class='<?php echo $error ?>'>
 </body>
 
-</html>';
+</html>
