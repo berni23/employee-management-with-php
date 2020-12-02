@@ -3,7 +3,6 @@
 
 
 
-
 class dashboardModel extends Model
 {
 
@@ -16,14 +15,28 @@ class dashboardModel extends Model
 
     public function insertEmployee($data)
     {
-        $pdo = $this->db->connect();
+        try {
+            $pdo = $this->db->connect();
 
 
-        $sql = "INSERT INTO employee (name,email,age,streetAddress,city,state,postalCode,phoneNumber) 
+            $sql = "INSERT INTO employees (name,email,age,streetAddress,city,state,postalCode,phoneNumber) 
                 VALUES (:name,:email,:age,:streetAddress,:city,:state,:postalCode,:phoneNumber)";
-        $stmt = $pdo->prepare($sql);
-        $result =  $stmt->execute($data);
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'age' => $data['age'],
+                'streetAddress' => $data['streetAddress'],
+                'city' => $data['city'],
+                'state' => $data['state'],
+                'postalCode' => $data['postalCode'],
+                'phoneNumber' => $data['phoneNumber']
+            ]);
 
-        return $result;
+            return true;
+        } catch (PDOException $e) {
+            echo 'Ya existe el empleado';
+            return false;
+        }
     }
 }
