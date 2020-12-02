@@ -19,7 +19,7 @@ class employeeModel extends Model
         $pdo = $this->db->connect();
         try {
             $pdo = $this->db->connect();
-            $sql = "UPDATE employees SET gender=:gender,lastName=:lastName,name=:name,email=:email,age=:age,streetAddress=:streetAddress,city=:city,state=:state,postalCode=:postalCode,phoneNumber=:phoneNumber WHERE id=$id;";
+            $sql = "UPDATE employees SET profileImg=:profileImg,gender=:gender,lastName=:lastName,name=:name,email=:email,age=:age,streetAddress=:streetAddress,city=:city,state=:state,postalCode=:postalCode,phoneNumber=:phoneNumber WHERE id=$id;";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
             return true;
