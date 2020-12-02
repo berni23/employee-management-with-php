@@ -9,7 +9,7 @@ class Router
     {
         session_start();
         $this->urlParams();
-        //  unset($_SESSION['userName']);
+        // unset($_SESSION['userName']);
         if (!isset($_SESSION['userName']) && (($this->url[0]) !== 'login')) {
             header('Location: ' . BASE_URL . '/login');
         } else  $this->route();

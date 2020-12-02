@@ -9,7 +9,7 @@ class dashboard extends controller
         $this->view->render('dashboardView.php');
     }
 
-    protected function getAllEmployees()
+    public function getAllEmployees()
     {
         $this->model = new dashboardModel();
         echo json_encode($this->model->getAll());
