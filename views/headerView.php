@@ -10,6 +10,6 @@
         <div id="dashboardPage">Dashboard</div>
         <div id="employeePage">Employee</div>
         <div>
-            <a id="logout" href="../src/library/logout.php">Logout</a>
+            <a id="logout" href=<?php echo BASE_URL . "/login/logout" ?>>Logout</a>
         </div>
     </header>
